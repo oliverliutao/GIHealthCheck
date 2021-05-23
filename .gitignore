@@ -1,0 +1,10 @@
+.git
+node_modules
+errorShots
+concepts
+build
+.idea
+debug.log
+package-lock.json
+.vscode
+lib

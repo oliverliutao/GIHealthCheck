@@ -1,0 +1,59 @@
+{
+  "name": "mocha-webdriverio-auto_testing",
+  "version": "1.0.0",
+  "description": "Automated testing GI Portals",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run build_without_lint && npm run dotest",
+    "test-headless": "npm run dotest-headless",
+    "dotest-headless": "wdio wdio.headless.conf.js",
+    "dotest": "wdio wdio.conf.js",
+    "lint": "eslint --fix src/pages/**/*.js src/test/**/*.js",
+    "upgradecheck": "ncu",
+    "upgradeDependencies": "ncu -u",
+    "moveJsonFiles": "copyfiles -u 1 src/selectors/*.json src/config/*.json lib",
+    "build": "npm run lint && rimraf lib && npm run moveJsonFiles && babel src --out-dir lib",
+    "build_without_lint": "rimraf lib && npm run moveJsonFiles && babel src --out-dir lib"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliverliutao/GIHealthCheck.git"
+  },
+  "keywords": [
+    "webdriverio",
+    "selenium",
+    "nodejs",
+    "es6"
+  ],
+  "author": "James Davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oliverliutao/GIHealthCheck/issues"
+  },
+  "homepage": "https://github.com/oliverliutao/GIHealthCheck#readme",
+  "devDependencies": {
+    "@wdio/cli": "^7.1.2",
+    "@wdio/dot-reporter": "^7.1.1",
+    "@wdio/local-runner": "^7.1.2",
+    "@wdio/mocha-framework": "^7.1.2",
+    "@wdio/selenium-standalone-service": "^7.1.1",
+    "@wdio/spec-reporter": "^7.1.1",
+    "@wdio/sync": "^7.1.1",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.3.4",
+    "copyfiles": "^2.4.1",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-wdio": "^7.0.0",
+    "pre-commit": "latest",
+    "query-string": "^6.14.1",
+    "webdriverio": "^7.1.1"
+  }
+}
