@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run build_without_lint && npm run dotest",
-    "test-headless": "npm run dotest-headless",
+    "test-headless": "npm run build_without_lint  && npm run dotest-headless",
     "dotest-headless": "wdio wdio.headless.conf.js",
     "dotest": "wdio wdio.conf.js",
     "lint": "eslint --fix src/pages/**/*.js src/test/**/*.js",
@@ -24,13 +24,11 @@
     "url": "git+https://github.com/oliverliutao/gihealthcheck.git"
   },
   "keywords": [
+    "mocha",
     "webdriverio",
-    "selenium",
-    "nodejs",
-    "es6"
+    "chai",
+    "nodejs"
   ],
-  "author": "James Davis",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/oliverliutao/gihealthcheck/issues"
   },
