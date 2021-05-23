@@ -326,10 +326,10 @@ describe('Checkboxes test suite: ', () => {
             }
         }
 
-        assert.equal(currentUrl, expectURL, 'reach payment page ?>>> ');
+        assert.equal(currentUrl, expectURL, 'PASS');
 
 
-        browser.pause(600000);
+        // browser.pause(600000);
 
     });
 });
