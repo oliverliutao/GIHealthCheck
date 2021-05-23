@@ -6,7 +6,7 @@ class NavigationMenu {
         this.homepage = '/hm/home/#/getQuote';
     }
 
-    loadCheckboxesPage() {
+    loadhomePage() {
         browser.url(this.homepage);
     }
 }

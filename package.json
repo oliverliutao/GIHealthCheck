@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oliverliutao/GIHealthCheck.git"
+    "url": "git+https://github.com/oliverliutao/gihealthcheck.git"
   },
   "keywords": [
     "webdriverio",
@@ -32,9 +32,9 @@
   "author": "James Davis",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/oliverliutao/GIHealthCheck/issues"
+    "url": "https://github.com/oliverliutao/gihealthcheck/issues"
   },
-  "homepage": "https://github.com/oliverliutao/GIHealthCheck#readme",
+  "homepage": "https://github.com/oliverliutao/gihealthcheck#readme",
   "devDependencies": {
     "@wdio/cli": "^7.1.2",
     "@wdio/dot-reporter": "^7.1.1",
