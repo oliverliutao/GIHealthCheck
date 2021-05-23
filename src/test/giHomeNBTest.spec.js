@@ -178,7 +178,25 @@ describe('Checkboxes test suite: ', () => {
         const page4PStreet= $('#addressLine2');
         const page4PBuilding= $('#addressLine4');
         var block = page4PBlock.getValue();
-        if(block === null || block === '') {
+
+        var ind4Address = 0;
+        var autoFilled = false;
+        while(ind4Address < 5) {
+
+            if(block !== null && block !== '') {
+                console.log("page 4 address auto-populated");
+                autoFilled = true;
+                break;
+            }else {
+                console.log("page 4 address NOT auto-populated, retry");
+                browser.pause(5000);
+                block = page4PBlock.getValue();
+                ind4Address ++;
+            }
+        }
+
+
+        if(autoFilled === false) {
 
             console.log("QAS API NOT working, manually fill in adress");
             page4PBlock.setValue('1');
@@ -190,10 +208,10 @@ describe('Checkboxes test suite: ', () => {
         console.log(page4PStreet.getValue());
         console.log(page4PBlock.getValue());
 
+
         const page4MailAddressOption = $('span=No');
         console.log(page4MailAddressOption.getText());
         
-
         var ind4MailAd = 0;
         while(ind4MailAd < 5) {
 
@@ -226,7 +244,7 @@ describe('Checkboxes test suite: ', () => {
             }
         }
 
-        browser.pause(10000);
+        browser.pause(15000);
 
         //////page 5//////
         const page5Nextbtn = $('a=I agree - buy now');
@@ -275,7 +293,7 @@ describe('Checkboxes test suite: ', () => {
         while(ind6Next < 5) {
 
             if(page6NextBtn.isClickable()) {
-                console.log("page 6 next btn clickable");
+                console.log("page 6 next btn clickable, locaing payment page");
                 page6NextBtn.click();
                 break;
             }else {
@@ -284,6 +302,31 @@ describe('Checkboxes test suite: ', () => {
                 ind6Next ++;
             }
         }
+
+
+        browser.pause(30000);
+
+        var expectURL = 'https://secureacceptance.cybersource.com/payment';
+        var currentUrl = browser.getUrl();
+        console.log(currentUrl);
+
+        var indUrl = 0;
+        while(indUrl < 10) {
+
+            if(currentUrl === expectURL) {
+                console.log("reach payment page ~~ Health check completed ~~ Everything OK");
+                
+                break;
+            }else {
+                console.log("NOT reach payment page yet, waiting");
+                browser.pause(15000);
+                currentUrl = browser.getUrl();
+                console.log(currentUrl);
+                indUrl ++;
+            }
+        }
+
+        assert.equal(currentUrl, expectURL, 'reach payment page ?>>> ');
 
 
         browser.pause(600000);
