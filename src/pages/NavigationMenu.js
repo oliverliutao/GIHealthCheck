@@ -1,8 +1,8 @@
-import screenPresenceLocators from '../selectors/screenPresenceLocators';
+// import screenPresenceLocators from '../selectors/screenPresenceLocators';
 
 class NavigationMenu {
     constructor() {
-        this.screenLocators = screenPresenceLocators;
+        // this.screenLocators = screenPresenceLocators;
         this.homepage = '/hm/home/#/getQuote';
         this.travelpage = '/gi/travel/#/getQuote';
         this.motorpage = '/directinsurance/gimotor.htm';

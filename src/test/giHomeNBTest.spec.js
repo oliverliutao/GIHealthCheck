@@ -1,6 +1,7 @@
 import { assert } from 'chai';
 import $$ from 'webdriverio/build/commands/browser/$$';
 import NavigationMenu from '../pages/NavigationMenu';
+import testData from '../data/testData';
 
 describe('Home health check: ', () => {
     beforeEach(() => {
@@ -21,7 +22,7 @@ describe('Home health check: ', () => {
         const page1Occupancy = $('#dwellingTypeRef');
         // index=0 is invalid which is "please select", so index start from 1
         // occupancy.selectByIndex(1);
-        page1Occupancy.selectByVisibleText('Detached');
+        page1Occupancy.selectByVisibleText(testData.occupancy);
         // occupancy.selectByAttribute("value", "DE")
         console.log(page1Occupancy.getValue());
 
