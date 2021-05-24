@@ -101,12 +101,12 @@ describe('Home health check: ', () => {
 
         // find element by name
         const page4Familyname = $('[name="familyName"]')
-        page4Familyname.setValue('l');
+        page4Familyname.setValue(testData.familyName);
         console.log(page4Familyname.getValue()); 
 
         
         const page4Givenname = $('[name="givenName"]')
-        page4Givenname.setValue('t');
+        page4Givenname.setValue(testData.givenName);
         console.log(page4Givenname.getValue()); 
 
         browser.pause(5000);
@@ -132,26 +132,26 @@ describe('Home health check: ', () => {
 
         //find elememt by name
         const page4Nric = $('[name="identificationNo"]')
-        page4Nric.setValue('G3208127X');
+        page4Nric.setValue(testData.nric);
         console.log(page4Nric.getValue()); 
 
         const dob = $('.m-textbox-group');
-        dob.$$('li')[0].$('input').setValue('10');
-        dob.$$('li')[1].$('input').setValue('12');
-        dob.$$('li')[2].$('input').setValue('1982');
+        dob.$$('li')[0].$('input').setValue(testData.dobDate);
+        dob.$$('li')[1].$('input').setValue(testData.dobMonth);
+        dob.$$('li')[2].$('input').setValue(testData.dobYear);
 
         
         const page4Mobile= $('#mobile');
-        page4Mobile.setValue('93755748');
+        page4Mobile.setValue(testData.phoneNumber);
         console.log(page4Mobile.getValue());
 
         const page4Email= $('#email');
-        page4Email.setValue('tao_liu@aviva-asia.com');
+        page4Email.setValue(testData.email);
         console.log(page4Email.getValue());
         
 
         const page4PostalCode= $('#postalCode');
-        page4PostalCode.setValue('160009');
+        page4PostalCode.setValue(testData.postCode);
         console.log(page4PostalCode.getValue());
 
         browser.pause(5000);
@@ -205,7 +205,7 @@ describe('Home health check: ', () => {
             // page4PBuilding.setValue('building test');
 
             console.log("page 4 address click btn again");
-            page4PostalCode.setValue('160009');
+            page4PostalCode.setValue(testData.postCode);
             if(page4Addressbtn.isClickable()) {
                 page4Addressbtn.click();
             }
