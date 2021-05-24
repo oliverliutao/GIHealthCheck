@@ -4,7 +4,7 @@ import NavigationMenu from '../pages/NavigationMenu';
 
 describe('Home health check: ', () => {
     beforeEach(() => {
-        NavigationMenu.loadhomePage();
+        NavigationMenu.loadHomePage();
     });
 
     it('Strat checking', () => {

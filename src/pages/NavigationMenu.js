@@ -9,7 +9,7 @@ class NavigationMenu {
         this.papage = '/directinsurance/pa.htm';
     }
 
-    loadhomePage() {
+    loadHomePage() {
         browser.url(this.homepage);
     }
 
@@ -21,7 +21,7 @@ class NavigationMenu {
         browser.url(this.papage);
     }
 
-    loadotorPage() {
+    loadMotorPage() {
         browser.url(this.motorpage);
     }
 }
