@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import $$ from 'webdriverio/build/commands/browser/$$';
 import NavigationMenu from '../pages/NavigationMenu';
 
-describe('Checkboxes test suite: ', () => {
+describe('Home health check: ', () => {
     beforeEach(() => {
         NavigationMenu.loadhomePage();
     });
