@@ -9,7 +9,7 @@ describe('Home health check: ', () => {
     });
 
     it('Strat checking', () => {
-        // browser.pause(5000);
+        browser.pause(10000);
         
         //////page 1//////
         // const landlordbtn = $('#occupancy_LANDLORD');
@@ -250,7 +250,7 @@ describe('Home health check: ', () => {
             }
         }
 
-        browser.pause(15000);
+        browser.pause(20000);
 
         //////page 5//////
         const page5Nextbtn = $('a=I agree - buy now');
@@ -299,7 +299,7 @@ describe('Home health check: ', () => {
         while(ind6Next < 5) {
 
             if(page6NextBtn.isClickable()) {
-                console.log("page 6 next btn clickable, locaing payment page");
+                console.log("page 6 next btn clickable, loading payment page");
                 page6NextBtn.click();
                 break;
             }else {

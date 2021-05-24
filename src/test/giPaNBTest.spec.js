@@ -8,7 +8,7 @@ describe('PA health check: ', () => {
     });
 
     it('Strat checking', () => {
-
+        browser.pause(10000);
 
     });
 });

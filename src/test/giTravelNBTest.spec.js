@@ -10,6 +10,7 @@ describe('Travel health check: ', () => {
     });
 
     it('Strat checking', () => {
+        browser.pause(10000);
 
         //////page 1//////
         // there is a bug e.g. 20-Jun-2021 set to cover end date, result will be 0-Jun-2021, date be cut off
@@ -303,7 +304,7 @@ describe('Travel health check: ', () => {
         while(ind6Next < 5) {
 
             if(page6NextBtn.isClickable()) {
-                console.log("page 6 next btn clickable, locaing payment page");
+                console.log("page 6 next btn clickable, loading payment page");
                 page6NextBtn.click();
                 break;
             }else {
