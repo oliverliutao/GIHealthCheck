@@ -1,33 +1,52 @@
 import { assert } from 'chai';
+import date from 'date-and-time';
 import $$ from 'webdriverio/build/commands/browser/$$';
 import NavigationMenu from '../pages/NavigationMenu';
 
-describe('Home health check: ', () => {
+
+describe('Travel health check: ', () => {
     beforeEach(() => {
-        NavigationMenu.loadhomePage();
+        NavigationMenu.loadTravelPage();
     });
 
     it('Strat checking', () => {
-        // browser.pause(5000);
-        
+
         //////page 1//////
-        // const landlordbtn = $('#occupancy_LANDLORD');
-        // console.log(landlordbtn.isClickable());
-        // landlordbtn.click({ y: 10 });
-        // browser.isElementEnable('#occupancy_LANDLORD');
-        // browser.isElementDisplayed('#occupancy_LANDLORD');
+        // there is a bug e.g. 20-Jun-2021 set to cover end date, result will be 0-Jun-2021, date be cut off
+        // const page1CoverSDate = $('[name="departDate"]');
+        // var coverSD = page1CoverSDate.getValue();
+        // console.log(page1CoverSDate.getValue());
+        // var newdate = new Date(coverSD);
+        // var tmpDate = date.addMonths(newdate, 1);
+        // var tmpDate1 = date.format(tmpDate, 'YYYY-MM-DD');
+        // console.log(tmpDate1);
+        // const page1CoverEndDate = $('[name="returnDate"]')
+        // var tmpDate2 = new Date(tmpDate1);
+        // const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        // var value = tmpDate2.getDate() + '-' + monthNames[tmpDate2.getMonth()]+ '-' + tmpDate2.getFullYear();
+        // console.log(value);
+        // page1CoverEndDate.setValue(value);
+        // console.log(page1CoverEndDate.getValue()); 
 
-        // find element by id, start with #
-        const page1Occupancy = $('#dwellingTypeRef');
-        // index=0 is invalid which is "please select", so index start from 1
-        // occupancy.selectByIndex(1);
-        page1Occupancy.selectByVisibleText('Detached');
-        // occupancy.selectByAttribute("value", "DE")
-        console.log(page1Occupancy.getValue());
-
-        // browser.scroll('.someClass');
 
         // find element by text
+        const page1Annual = $('span=Annual');
+        console.log(page1Annual.getText());
+        
+        var ind1Annual = 0;
+        while(ind1Annual < 5) {
+
+            if(page1Annual.isClickable()) {
+                console.log("page 1 annual btn clickable");
+                page1Annual.click();
+                break;
+            }else {
+                console.log("page 1 annual btn NOT clickable, retry");
+                browser.pause(5000);
+                ind1Annual ++;
+            }
+        }
+
         const page1Nextbtn = $('button=Choose plan');
         console.log(page1Nextbtn.getText());
 
@@ -45,8 +64,8 @@ describe('Home health check: ', () => {
             }
         }
 
-
         browser.pause(5000);
+
 
         //////page 2//////
         // find element by text
@@ -69,6 +88,7 @@ describe('Home health check: ', () => {
 
 
         browser.pause(5000);
+
 
         //////page 3//////
         // find element by text
@@ -93,10 +113,18 @@ describe('Home health check: ', () => {
         browser.pause(5000);
 
         //////page 4//////
+        //find elememt by name
+        const page4Nric = $('[name="identificationNo"]')
+        page4Nric.setValue('G3208127X');
+        console.log(page4Nric.getValue()); 
+
+
         // find element by id
         const page4Salutation= $('#salutation');
         page4Salutation.selectByVisibleText('Mr');
         console.log(page4Salutation.getValue());
+
+        browser.pause(5000);
 
         // find element by name
         const page4Familyname = $('[name="familyName"]')
@@ -108,14 +136,19 @@ describe('Home health check: ', () => {
         page4Givenname.setValue('t');
         console.log(page4Givenname.getValue()); 
 
-        browser.pause(5000);
+
+        const dob = $('.m-textbox-group');
+        dob.$$('li')[0].$('input').setValue('10');
+        dob.$$('li')[1].$('input').setValue('12');
+        dob.$$('li')[2].$('input').setValue('1982');
+
 
         // find element by text
         const page4Gender = $('span=Male');
         console.log(page4Gender.getText());
         
         var ind4Gender = 0;
-        while(ind4Gender < 5) {
+        while(ind4Gender < 10) {
 
             if(page4Gender.isClickable()) {
                 console.log("page 4 gender btn clickable");
@@ -128,18 +161,6 @@ describe('Home health check: ', () => {
             }
         }
 
-
-        //find elememt by name
-        const page4Nric = $('[name="identificationNo"]')
-        page4Nric.setValue('G3208127X');
-        console.log(page4Nric.getValue()); 
-
-        const dob = $('.m-textbox-group');
-        dob.$$('li')[0].$('input').setValue('10');
-        dob.$$('li')[1].$('input').setValue('12');
-        dob.$$('li')[2].$('input').setValue('1982');
-
-        
         const page4Mobile= $('#mobile');
         page4Mobile.setValue('93755748');
         console.log(page4Mobile.getValue());
@@ -147,14 +168,12 @@ describe('Home health check: ', () => {
         const page4Email= $('#email');
         page4Email.setValue('tao_liu@aviva-asia.com');
         console.log(page4Email.getValue());
-        
+
 
         const page4PostalCode= $('#postalCode');
         page4PostalCode.setValue('160009');
         console.log(page4PostalCode.getValue());
 
-        browser.pause(5000);
-        
         const page4Addressbtn = $('a=Find my address');
         console.log(page4Addressbtn.getText()); 
 
@@ -195,41 +214,27 @@ describe('Home health check: ', () => {
             }
         }
 
-
+        // QAS API not working, retry
         if(autoFilled === false) {
 
-            // console.log("QAS API NOT working, manually fill in adress");
-            // page4PBlock.setValue('1');
-            // page4PStreet.setValue('street test');
-            // page4PBuilding.setValue('building test');
+            // if(page4PBlock.isEnabled()) {
 
-            console.log("page 4 address click btn again");
-            page4PostalCode.setValue('160009');
-            if(page4Addressbtn.isClickable()) {
-                page4Addressbtn.click();
-            }
+            //     page4PBlock.setValue('1');
+            //     page4PStreet.setValue('street test');
+            //     page4PBuilding.setValue('building test');
+            //     console.log("page 4 address filled manually");
+
+            // }else {
+                console.log("page 4 address click btn again");
+                page4PostalCode.setValue('160009');
+                if(page4Addressbtn.isClickable()) {
+                    page4Addressbtn.click();
+                }
+            // }
         }
         console.log(page4PBlock.getValue());
         console.log(page4PStreet.getValue());
         console.log(page4PBlock.getValue());
-
-
-        const page4MailAddressOption = $('span=No');
-        console.log(page4MailAddressOption.getText());
-        
-        var ind4MailAd = 0;
-        while(ind4MailAd < 5) {
-
-            if(page4Gender.isClickable()) {
-                console.log("page 4 mail address option btn clickable");
-                page4MailAddressOption.click();
-                break;
-            }else {
-                console.log("page 4 mail address option btn NOT clickable, retry");
-                browser.pause(5000);
-                ind4MailAd ++;
-            }
-        }
 
 
         const page4Next = $('button=Go to summary & payment');
@@ -249,7 +254,7 @@ describe('Home health check: ', () => {
             }
         }
 
-        browser.pause(15000);
+        browser.pause(10000);
 
         //////page 5//////
         const page5Nextbtn = $('a=I agree - buy now');
@@ -334,7 +339,10 @@ describe('Home health check: ', () => {
         assert.equal(currentUrl, expectURL, 'PASS');
 
 
-        // browser.pause(600000);
+
+
+        browser.pause(5000);
+
 
     });
 });

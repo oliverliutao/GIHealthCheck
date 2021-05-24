@@ -52,6 +52,7 @@
     "eslint-plugin-wdio": "^7.0.0",
     "pre-commit": "latest",
     "query-string": "^6.14.1",
-    "webdriverio": "^7.1.1"
+    "webdriverio": "^7.1.1",
+    "date-and-time": "^1.0.0"
   }
 }

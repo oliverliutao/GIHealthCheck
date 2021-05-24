@@ -9,12 +9,6 @@ This project was created to serve as a reference to others interested in ES6 web
 * Chai as assertion
 
 
-
-# Dependencies
-* Node.js - The latest [LTS release](https://nodejs.org/en/)
-* Java -- Needed to run the selenium server
-* Chrome.
-
 # Test execution
 1) Clone the latest version of this repo.
 2) ```npm install```

@@ -22,6 +22,7 @@ exports.config = {
     //
     specs: [
         './lib/test/**/*.spec.js',
+        // './lib/test/**/giTravelNBTest.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -43,7 +44,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 1,
+    maxInstances: 4,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -53,7 +54,7 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
-        maxInstances: 1,
+        maxInstances: 4,
         //
         browserName: 'chrome',
     }],
@@ -138,7 +139,7 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 600000,
+        timeout: 1200000,
         require: 'babel-register' 
     },
     //
