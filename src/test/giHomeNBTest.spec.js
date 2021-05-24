@@ -319,11 +319,11 @@ describe('Home health check: ', () => {
         while(indUrl < 10) {
 
             if(currentUrl === expectURL) {
-                console.log("reach payment page ~~ Health check completed ~~ Everything OK");
+                console.log("Home portal >> reach payment page ~~ Health check completed ~~ Everything OK");
                 
                 break;
             }else {
-                console.log("NOT reach payment page yet, waiting");
+                console.log("Home portal >> NOT reach payment page yet, waiting");
                 browser.pause(15000);
                 currentUrl = browser.getUrl();
                 console.log(currentUrl);

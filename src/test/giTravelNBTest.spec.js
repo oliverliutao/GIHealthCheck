@@ -324,11 +324,11 @@ describe('Travel health check: ', () => {
         while(indUrl < 10) {
 
             if(currentUrl === expectURL) {
-                console.log("reach payment page ~~ Health check completed ~~ Everything OK");
+                console.log("Travel portal >> reach payment page ~~ Health check completed ~~ Everything OK");
                 
                 break;
             }else {
-                console.log("NOT reach payment page yet, waiting");
+                console.log("Travel portal >> NOT reach payment page yet, waiting");
                 browser.pause(15000);
                 currentUrl = browser.getUrl();
                 console.log(currentUrl);
