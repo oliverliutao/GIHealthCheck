@@ -8,7 +8,7 @@ describe('Home health check: ', () => {
     });
 
     it('Strat checking', () => {
-        browser.pause(5000);
+        // browser.pause(5000);
         
         //////page 1//////
         // const landlordbtn = $('#occupancy_LANDLORD');
