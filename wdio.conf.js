@@ -44,6 +44,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
+    //// !!!!run into problem if set multiple instances
     maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
@@ -54,6 +55,8 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
+
+        //// !!!!run into problem if set multiple instances
         maxInstances: 1,
         //
         browserName: 'chrome',
