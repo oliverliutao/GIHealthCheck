@@ -9,7 +9,7 @@ module.exports = {
     dobDate: '10',
     dobMonth: '12',
     dobYear: '1982',
-    makeModel: 'HAFEI LOBO 1.1  1075cc',
+    makeModelStartWith: 'b',
     yearOfRegistration: '2015',
     registrationNum: 'SDN9999N',
     ncd: '0',

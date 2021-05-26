@@ -13,7 +13,9 @@ describe('Motor health check: ', () => {
 
         //////page 1//////
         const makeModel = $('#make_and_model');
-        makeModel.setValue(testData.makeModel);
+        makeModel.setValue(testData.makeModelStartWith);
+        //click dropdown list, offset is 100px
+        makeModel.click({ y: 100 });
         console.log(makeModel.getValue());
         
 
@@ -26,7 +28,7 @@ describe('Motor health check: ', () => {
         console.log(registrationNum.getValue());
 
         
-        const offPeak = $('#offpeak_no');
+        const offPeak = $('span=No');
         
         var ind1Offpeak = 0;
         while(ind1Offpeak < 5) {
@@ -54,11 +56,29 @@ describe('Motor health check: ', () => {
 
         browser.pause(5000);
 
+        // find element by text
+        const page1Gender = $('span=Male');
+        console.log(page1Gender.getText());
+        
+        var ind1Gender = 0;
+        while(ind1Gender < 5) {
+
+            if(page1Gender.isClickable()) {
+                console.log("page 1 gender btn clickable");
+                page1Gender.click();
+                break;
+            }else {
+                console.log("page 1 gender btn NOT clickable, retry");
+                browser.pause(5000);
+                ind1Gender ++;
+            }
+        }
+
         const ncd = $('#renewalNcd');
         ncd.selectByVisibleText(testData.ncd);
         console.log(ncd.getValue());
 
-        const claimNum = $('#claimCount_0');
+        const claimNum = $('span=0');
         
         var ind1Claim = 0;
         while(ind1Claim < 5) {
@@ -86,7 +106,7 @@ describe('Motor health check: ', () => {
         postCode.setValue(testData.postCode);
         console.log(postCode.getValue());
 
-
+// mindef_no
         const checkTcc = $('span=No');
         console.log(checkTcc.getText());
         
@@ -129,8 +149,7 @@ describe('Motor health check: ', () => {
 
 
         //////page 2//////
-        const page2NextBtn = $('a=Select');
-        console.log(page2NextBtn.getText());
+        const page2NextBtn = $('button=Select');
         
         var ind2Next = 0;
         while(ind2Next < 5) {
@@ -150,6 +169,29 @@ describe('Motor health check: ', () => {
         browser.pause(15000);
 
         //////page 3//////
+        const driverOptionCheck = $('#driverOptionCheck');
+        
+        var ind3Check1 = 0;
+        while(ind3Check1 < 5) {
+            if(driverOptionCheck.isClickable()) {
+                console.log("page 3 1st checkbox clickable");
+                driverOptionCheck.click()
+                break;
+            }else {
+                console.log("page 3 2nd checkbox btn NOT clickable, retry");
+                browser.pause(5000);
+                ind3Check1 ++;
+            }
+        }
+
+
+        const excessOptionCheck = $('#excessOptionCheck');
+        excessOptionCheck.click();
+
+
+        const page3NextBtn = $('a=Go to personal details');
+        page3NextBtn.clcik();
+
 
 
 

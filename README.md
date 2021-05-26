@@ -3,6 +3,9 @@ This repo contains examples of how to create page objects and tests using [webdr
 
 This project was created to serve as a reference to others interested in ES6 webdriver.io tests.
 
+# Note
+* node version 12 required for yargs
+
 # Automated testing framework & libraries
 * Mocha - automated testing e2e framework
 * WebDriverIO to manipulate browser
