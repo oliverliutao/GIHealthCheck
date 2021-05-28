@@ -1,4 +1,5 @@
 const fs = require('fs');
+const video = require('wdio-video-reporter');
 
 /* eslint-disable */
 exports.config = {
@@ -21,9 +22,9 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './lib/test/**/*.spec.js',
+        // './lib/test/**/*.spec.js',
         // './lib/test/**/giMotorNBTest.spec.js',
-        // './lib/test/**/giHomeNBTest.spec.js',
+        './lib/test/**/giHomeNBTest.spec.js',
         // './lib/test/**/giTravelNBTest.spec.js'
     ],
     // Patterns to exclude.
@@ -48,42 +49,46 @@ exports.config = {
     //
     //// This defines how many maximum tests would run in parallel in total
     //maximam 100
-    maxInstances: 4,
+    maxInstances: 100,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
-    //
-    // capabilities: [{
-
-    //     browserName: 'chrome',
-    // }],
-
+    
+    // all drivers need running in port 4444, except safari
+    // safari can setup running port e.g.
+    // /Applications/Safari\ Technology\ Preview.appontents/MacOS/safaridriver -p 445
     capabilities: [
     {
         browserName: 'chrome',
+        //default port is 4444
+        // port: 4444
         // specs: [
         //     './lib/test/**/giHomeNBTest.spec.js'
         // ]
     },
-    {
+    // {
         
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        //max instances run in parallel per capability, maximum 100
-        // maxInstances: 5,
-        browserName: 'firefox',
-        // specs: [
-        //     './lib/test/**/giTravelNBTest.spec.js'
-        // ]
-    },
+    //     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+    //     // grid with only 5 firefox instances available you can make sure that not more than
+    //     // 5 instances get started at a time.
+    //     //max instances run in parallel per capability, maximum 100
+    //     // maxInstances: 5,
+    //     browserName: 'firefox',
+    //     port: 4444
+    //     // specs: [
+    //     //     './lib/test/**/giTravelNBTest.spec.js'
+    //     // ]
+    // },
     // {
     //     browserName: 'safari',
+    //     port: 4458
     // },
-    {
-        browserName: 'MicrosoftEdge',
-    }],
+    // {
+    //     browserName: 'MicrosoftEdge',
+    //     port: 4444
+    // }
+],
 
 
     //
@@ -154,7 +159,19 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/docs/dot-reporter.html
-    reporters: ['dot', 'spec'],
+    reporters: ['dot', 'spec',
+        //both video and allure can capture screenshot
+        //if using video to capture, set true to disable allure
+        [video, {
+            saveAllVideos: true,       // If true, also saves videos for successful test cases
+            videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]
+        }],
+        ['allure', {
+            outputDir: './_results_/allure-raw',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: true
+        }],
+    ],
 
     // mochawesomeOpts: {
     //     includeScreenshots:true,
