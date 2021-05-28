@@ -24,3 +24,8 @@ To execute a standalone spec run  ``` .\node_modules\.bin\wdio --spec <path to t
 
 Example:
 ```.\node_modules\.bin\wdio --spec .\src\test\hoversTest.spec.js .\wdio.conf.js```
+
+
+## Licensing
+
+MIT

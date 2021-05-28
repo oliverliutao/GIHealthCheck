@@ -2,6 +2,7 @@ import { assert } from 'chai';
 import $$ from 'webdriverio/build/commands/browser/$$';
 import NavigationMenu from '../pages/NavigationMenu';
 import testData from '../data/testData';
+import pageUrl from '../data/pageUrl';
 
 describe('Home health check: ', () => {
     beforeEach(() => {
@@ -11,6 +12,8 @@ describe('Home health check: ', () => {
     it('Strat checking', () => {
         browser.pause(10000);
         
+        console.log(browser.capabilities);
+
         //////page 1//////
         // const landlordbtn = $('#occupancy_LANDLORD');
         // console.log(landlordbtn.isClickable());
@@ -135,11 +138,14 @@ describe('Home health check: ', () => {
         page4Nric.setValue(testData.nric);
         console.log(page4Nric.getValue()); 
 
+        browser.pause(5000);
+
         const dob = $('.m-textbox-group');
         dob.$$('li')[0].$('input').setValue(testData.dobDate);
         dob.$$('li')[1].$('input').setValue(testData.dobMonth);
         dob.$$('li')[2].$('input').setValue(testData.dobYear);
 
+        browser.pause(5000);
         
         const page4Mobile= $('#mobile');
         page4Mobile.setValue(testData.phoneNumber);
@@ -149,6 +155,7 @@ describe('Home health check: ', () => {
         page4Email.setValue(testData.email);
         console.log(page4Email.getValue());
         
+        browser.pause(5000);
 
         const page4PostalCode= $('#postalCode');
         page4PostalCode.setValue(testData.postCode);
@@ -174,6 +181,7 @@ describe('Home health check: ', () => {
         }
 
         browser.pause(5000);
+
 
         const page4PBlock= $('#addressLine1');
         const page4PStreet= $('#addressLine2');
@@ -312,7 +320,7 @@ describe('Home health check: ', () => {
 
         browser.pause(30000);
 
-        var expectURL = 'https://secureacceptance.cybersource.com/payment';
+        var expectURL = pageUrl.paymentGatewayUrl;
         var currentUrl = browser.getUrl();
         console.log(currentUrl);
 

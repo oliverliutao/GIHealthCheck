@@ -1,7 +1,7 @@
 module.exports = {
     nric: 'G3208127X',
-    familyName: 'l',
-    givenName: 't',
+    familyName: 'liu',
+    givenName: 'tao',
     email: 'tao_liu@aviva-asia.com',
     postCode: '160009',
     phoneNumber: '93755748',
@@ -14,7 +14,7 @@ module.exports = {
     registrationNum: 'SDN9999N',
     ncd: '0',
     licenseYears: '5 or more',
-
+    previousInsurer: 'Aviva Ltd.'
 
 
   };

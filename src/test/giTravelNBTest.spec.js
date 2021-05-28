@@ -3,6 +3,7 @@ import date from 'date-and-time';
 import $$ from 'webdriverio/build/commands/browser/$$';
 import NavigationMenu from '../pages/NavigationMenu';
 import testData from '../data/testData'
+import pageUrl from '../data/pageUrl';
 
 
 describe('Travel health check: ', () => {
@@ -12,6 +13,8 @@ describe('Travel health check: ', () => {
 
     it('Strat checking', () => {
         browser.pause(10000);
+
+        console.log(browser.capabilities);
 
         //////page 1//////
         // there is a bug e.g. 20-Jun-2021 set to cover end date, result will be 0-Jun-2021, date be cut off
@@ -121,12 +124,14 @@ describe('Travel health check: ', () => {
         console.log(page4Nric.getValue()); 
 
 
+        browser.pause(5000);
+
         // find element by id
         const page4Salutation= $('#salutation');
         page4Salutation.selectByVisibleText('Mr');
         console.log(page4Salutation.getValue());
 
-        browser.pause(5000);
+        
 
         // find element by name
         const page4Familyname = $('[name="familyName"]')
@@ -171,6 +176,7 @@ describe('Travel health check: ', () => {
         page4Email.setValue(testData.email);
         console.log(page4Email.getValue());
 
+        browser.pause(5000);
 
         const page4PostalCode= $('#postalCode');
         page4PostalCode.setValue(testData.postCode);
@@ -318,7 +324,7 @@ describe('Travel health check: ', () => {
 
         browser.pause(30000);
 
-        var expectURL = 'https://secureacceptance.cybersource.com/payment';
+        var expectURL = pageUrl.paymentGatewayUrl;
         var currentUrl = browser.getUrl();
         console.log(currentUrl);
 
@@ -341,9 +347,7 @@ describe('Travel health check: ', () => {
         assert.equal(currentUrl, expectURL, 'PASS');
 
 
-
-
-        browser.pause(5000);
+        // browser.pause(105000);
 
 
     });

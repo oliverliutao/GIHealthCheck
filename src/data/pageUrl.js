@@ -21,6 +21,7 @@ module.exports = {
     paPage2Url: '',
     paPage3Url: '',
     paPage4Url: '',
-    paPage5Url: ''
+    paPage5Url: '',
 
+    paymentGatewayUrl: 'https://secureacceptance.cybersource.com/payment',
   };
