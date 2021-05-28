@@ -267,17 +267,18 @@ describe('Motor health check: ', () => {
             }
         }
 
+        browser.pause(10000);
+
         const previousInsurer = $('#previousInsurer');
         previousInsurer.selectByVisibleText(testData.previousInsurer);
 
-        browser.pause(5000);
 
         const page4Email= $('#email');
         page4Email.setValue(testData.email);
         console.log(page4Email.getValue());
 
         browser.pause(5000);
-        
+
         const page4financeagreement = $('span=No');
         console.log(page4financeagreement.getText());
 
