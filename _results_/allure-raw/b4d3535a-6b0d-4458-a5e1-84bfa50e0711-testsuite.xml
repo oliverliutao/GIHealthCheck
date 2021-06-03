@@ -1,0 +1,28 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1622470699637' stop='1622470825598'>
+    <name>Home health check: </name>
+    <title>Home health check: </title>
+    <test-cases>
+        <test-case start='1622470699649' status='passed' stop='1622470825594'>
+            <name>Strat checking</name>
+            <title>Strat checking</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-90.0.4430.212'/>
+                <parameter kind='argument' name='browser' value='chrome-90.0.4430.212'/>
+                <parameter kind='argument' name='browserVersion' value='90.0.4430.212'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Execution video' source='1ebd9eec-48ca-49c2-a83c-f989ebd37562-attachment.mp4' type='video/mp4' size='125'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
