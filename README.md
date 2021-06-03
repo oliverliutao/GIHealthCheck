@@ -26,6 +26,7 @@ Example:
 ```.\node_modules\.bin\wdio --spec .\src\test\hoversTest.spec.js .\wdio.conf.js```
 
 
+
 ## Licensing
 
 MIT

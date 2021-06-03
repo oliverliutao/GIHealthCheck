@@ -1,6 +1,12 @@
 const fs = require('fs');
 const video = require('wdio-video-reporter');
 
+const drivers = {
+    chrome: { version: '91.0.4472.19' }, // https://chromedriver.chromium.org/
+    firefox: { version: '0.29.1' }, // https://github.com/mozilla/geckodriver/releases
+    chromiumedge: { version: '85.0.564.70' } // https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+};
+
 /* eslint-disable */
 exports.config = {
     //
@@ -61,33 +67,33 @@ exports.config = {
     capabilities: [
     {
         browserName: 'chrome',
-        //default port is 4444
-        // port: 4444
+        // default port is 4444
+        // port: 4444,
         // specs: [
         //     './lib/test/**/giHomeNBTest.spec.js'
         // ]
     },
     // {
         
-    //     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-    //     // grid with only 5 firefox instances available you can make sure that not more than
-    //     // 5 instances get started at a time.
-    //     //max instances run in parallel per capability, maximum 100
-    //     // maxInstances: 5,
-    //     browserName: 'firefox',
-    //     port: 4444
-    //     // specs: [
-    //     //     './lib/test/**/giTravelNBTest.spec.js'
-    //     // ]
+        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+        // grid with only 5 firefox instances available you can make sure that not more than
+        // 5 instances get started at a time.
+        // max instances run in parallel per capability, maximum 100
+        // maxInstances: 5,
+        // browserName: 'firefox',
+        // port: 4444,
+        // specs: [
+        //     './lib/test/**/giTravelNBTest.spec.js'
+        // ]
+    // },
+    // {
+    //     browserName: 'MicrosoftEdge',
+    //     // port: 4444
     // },
     // {
     //     browserName: 'safari',
     //     port: 4458
     // },
-    // {
-    //     browserName: 'MicrosoftEdge',
-    //     port: 4444
-    // }
 ],
 
 
@@ -147,7 +153,16 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
+
+
     services: ['selenium-standalone'],
+    // services: [
+    //     ['selenium-standalone', {
+    //         // logPath: 'logs',
+    //         installArgs: { drivers }, // drivers to install
+    //         args: { drivers } // drivers to use
+    //     }]
+    // ],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: http://webdriver.io/docs/frameworks.html

@@ -21,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oliverliutao/gihealthcheck.git"
+    "url": "git+https://github.com/oliverliutao/mochaWebdriverIOBDD.git"
   },
   "keywords": [
     "mocha",
@@ -30,9 +30,9 @@
     "nodejs"
   ],
   "bugs": {
-    "url": "https://github.com/oliverliutao/gihealthcheck/issues"
+    "url": "https://github.com/oliverliutao/mochaWebdriverIOBDD/issues"
   },
-  "homepage": "https://github.com/oliverliutao/gihealthcheck#readme",
+  "homepage": "https://github.com/oliverliutao/mochaWebdriverIOBDD#readme",
   "devDependencies": {
     "@wdio/cli": "^7.1.2",
     "@wdio/dot-reporter": "^7.1.1",
@@ -45,15 +45,16 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "chai": "^4.3.4",
+    "chromedriver": "^91.0.0",
     "copyfiles": "^2.4.1",
+    "date-and-time": "^1.0.0",
     "eslint": "^7.22.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-wdio": "^7.0.0",
     "pre-commit": "latest",
     "query-string": "^6.14.1",
-    "webdriverio": "^7.1.1",
-    "date-and-time": "^1.0.0"
+    "webdriverio": "^7.1.1"
   },
   "dependencies": {
     "wdio-video-reporter": "^3.1.1"
