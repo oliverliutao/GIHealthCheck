@@ -28,9 +28,9 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        // './lib/test/**/*.spec.js',
+        './lib/test/**/*.spec.js',
         // './lib/test/**/giMotorNBTest.spec.js',
-        './lib/test/**/giHomeNBTest.spec.js',
+        // './lib/test/**/giHomeNBTest.spec.js',
         // './lib/test/**/giTravelNBTest.spec.js'
     ],
     // Patterns to exclude.
@@ -55,7 +55,8 @@ exports.config = {
     //
     //// This defines how many maximum tests would run in parallel in total
     //maximam 100
-    maxInstances: 100,
+    // maxInstances: 100,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:

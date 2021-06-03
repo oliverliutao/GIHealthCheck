@@ -4,9 +4,9 @@
       "plugin:wdio/recommended"
   ],
   "rules": {
-    // "indent": ["error", 4],
-    // "func-names": "off",
-    // "max-len": ["error", { "code": 122 }]
+    "indent": ["error", 4],
+    "func-names": "off",
+    "max-len": ["error", { "code": 125 }]
   },
   "plugins": ["wdio"],
   "env": {
